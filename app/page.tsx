@@ -2,14 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { register } from "swiper/element/bundle";
+import ExploreList from "./unsplash";
 
 register();
 
-function getImageUrl(name: string) {
+export function getImageUrl(name: string) {
   return new URL(`./assets/images/${name}.jpg`, import.meta.url).href;
 }
 
-function Figcaption({ className, caption, url, author }) {
+export function Figcaption({ className, caption, url, author }) {
   return (
     <figcaption className={className}>
       <h3 className="mb-2 text-4xl font-medium">{caption}</h3>
@@ -112,7 +113,8 @@ function Explore() {
   return (
     <section id="Explore" className="mx-auto w-5/6 space-y-8">
       <H2 name={"Explore"} />
-      <ul className="grid md:grid-cols-2 md:gap-x-4 lg:auto-rows-[6.25rem] lg:grid-cols-3">
+      <ExploreList />
+      {/* <ul className="grid md:grid-cols-2 md:gap-x-4 lg:auto-rows-[6.25rem] lg:grid-cols-3">
         <ExploreFigure
           caption="Sunrise"
           author="Quang Le"
@@ -149,7 +151,7 @@ function Explore() {
           url="https://pixabay.com/users/pexels-2286921/"
           className="row-span-4"
         />
-      </ul>
+      </ul> */}
     </section>
   );
 
