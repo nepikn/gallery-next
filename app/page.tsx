@@ -6,7 +6,7 @@ import ExploreList from "./unsplash";
 
 register();
 
-export function getImageUrl(name: string) {
+function getImageUrl(name: string) {
   return new URL(`./assets/images/${name}.jpg`, import.meta.url).href;
 }
 
@@ -44,9 +44,9 @@ function Header() {
       <div className="relative mx-auto flex w-5/6 items-center justify-between gap-x-9">
         <a
           href="#"
-          className="flex items-center space-x-4 py-5 font-medium text-black lg:text-6xl"
+          className="flex items-center space-x-4 py-5 font-medium text-black"
         >
-          <span className="material-symbols-outlined text-4xl [font-variation-settings:'wght'_300] lg:text-8xl">
+          <span className="material-symbols-outlined !text-4xl [font-variation-settings:'wght'_300] lg:!text-8xl">
             image
           </span>
           <h1 className="font-serif text-3xl lg:text-6xl">GALLERY</h1>
