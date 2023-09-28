@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { register } from "swiper/element/bundle";
-import ExploreList from "./unsplash";
+import ExploreList from "./components/explore-list";
 
 register();
 

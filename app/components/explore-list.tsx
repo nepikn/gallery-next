@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { createApi } from "unsplash-js";
-import { Figcaption } from "./page";
+import { Figcaption } from "../page";
 import { ApiResponse } from "unsplash-js/dist/helpers/response";
-// import { log } from "console";
 
 interface Photo {
   id: string;
@@ -76,44 +75,28 @@ interface Photo {
   };
 }
 
-const api = createApi({
-  accessKey: "keJPHP5nqYQ61etYfzbzttU081n8_GPtmKOy3jh0AeU",
-});
-
 export default function ExploreList() {
-  const [unsplashRes, setUnsplashRes] = useState<ApiResponse<{
-    results: Photo[];
-    total: number;
-  }> | null>(null);
+  const [photos, setPhotos] = useState<Photo[]>([]);
+  const liSpans = [4, 5];
 
   useEffect(() => {
-    if (unsplashRes) return;
+    // console.log(import.meta.url);
+    fetch("/unsplash")
+      .then((res) => res.json())
+      .then(setPhotos);
+  }, []);
 
-    api.collections
-      .getPhotos({
-        collectionId: "b5_z5iwSu5E",
-        perPage: 3,
-        orientation: "landscape",
-      })
-      .then(setUnsplashRes);
-  });
-
-  if (!unsplashRes) {
-    return <div>Loading...</div>;
-  } else {
-    const liSpans = [4, 5];
-    console.log(unsplashRes.response!.results.map((p) => JSON.stringify(p)));
-
-    return (
-      <ul className="grid md:grid-cols-2 md:gap-x-4 lg:auto-rows-[6.25rem] lg:grid-cols-3">
-        {unsplashRes.response!.results.map((photo, i) => (
-          <li key={photo.id} className={"mb-8 row-span-" + liSpans[i]}>
-            <ExploreFigure photo={photo} />
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  return photos.length ? (
+    <ul className="grid md:grid-cols-2 md:gap-x-4 lg:auto-rows-[6.25rem] lg:grid-cols-3">
+      {photos.map((photo, i) => (
+        <li key={photo.id} className={"mb-8 row-span-" + liSpans[i]}>
+          <ExploreFigure photo={photo} />
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div>Loading...</div>
+  );
 }
 
 function ExploreFigure({ photo }: { photo: Photo }) {
