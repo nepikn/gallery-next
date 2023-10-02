@@ -4,14 +4,16 @@
 
 @layer components {
   .material-symbols-outlined {
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
   }
 
-  swiper-container {
-    &::part(button-prev),
-    &::part(button-next) {
-      color: #f0f0f0;
-    }
+  swiper-container::part(button-prev),
+  swiper-container::part(button-next) {
+    color: #f0f0f0;
   }
 }
 
