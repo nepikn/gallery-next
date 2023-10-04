@@ -8,7 +8,7 @@ export default function Author({ url, author }: AuthorProp) {
     <a
       href={url}
       target="_blank"
-      className="z-10 inline-flex items-center space-x-2 text-xl font-medium text-stone-500"
+      className="z-20 inline-flex items-center space-x-2 text-xl font-medium text-stone-500"
     >
       <span>{author}</span>
       <span className="material-symbols-outlined">open_in_new</span>

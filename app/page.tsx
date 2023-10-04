@@ -7,7 +7,7 @@ import H2 from "./components/H2";
 
 function Header() {
   return (
-    <header className="sticky top-0 z-20 w-full bg-[#f0f0f0] leading-none opacity-90">
+    <header className="sticky top-0 z-50 w-full bg-[#f0f0f0] leading-none opacity-90">
       <div className="relative mx-auto flex w-5/6 items-center justify-between gap-x-9">
         <a
           href="#"

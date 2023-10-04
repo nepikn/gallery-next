@@ -24,7 +24,7 @@ async function getPhoto() {
         "Accept-Version": "v1",
         Authorization: "Client-ID " + process.env.UNSPLASH_ACCESS_KEY,
       },
-    }
+    },
   );
   return res.json();
 }
