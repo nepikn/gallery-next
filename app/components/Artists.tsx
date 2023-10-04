@@ -24,21 +24,21 @@ export default function Artists() {
             <SwiperSlideArtist
               src={artist1}
               caption={"Hard work pays off"}
-              author={"Toản Dương"}
+              name={"Toản Dương"}
               alt="painting"
               url={"https://pixabay.com/users/duongtoan-4117230/"}
             />
             <SwiperSlideArtist
               src={artist2}
               caption={"Beauty comes from within"}
-              author={"Alexandr Ivanov"}
+              name={"Alexandr Ivanov"}
               alt="colorful face"
               url={"https://pixabay.com/users/whitedaemon-1982503/"}
             />
             <SwiperSlideArtist
               src={artist3}
               caption={"Be passionate"}
-              author={"Hiep hong"}
+              name={"Hiep hong"}
               alt="painting"
               url={"https://pixabay.com/users/tiemaoanh-21529431/"}
             />
@@ -56,14 +56,14 @@ type SwiperSlideArtistProp = {
   alt: string;
   caption: string;
   url: string;
-  author: string;
+  name: string;
 };
 function SwiperSlideArtist({
   src,
   alt,
   caption,
   url,
-  author,
+  name,
 }: SwiperSlideArtistProp) {
   return (
     <li className="shrink-0 basis-full md:basis-1/2">
@@ -71,7 +71,7 @@ function SwiperSlideArtist({
         <Image src={src} alt={alt} className="h-96 w-full object-cover" />
         <figcaption className={"absolute bottom-0 m-4 bg-white p-2"}>
           <q className="mb-2 block text-4xl font-medium italic">{caption}</q>
-          <Author {...{ url, author }} />
+          <Author {...{ url, name }} />
         </figcaption>
       </figure>
     </li>

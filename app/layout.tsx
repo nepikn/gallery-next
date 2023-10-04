@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,61 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        <div className="space-y-8 md:space-y-16 lg:space-y-24">
+          <main className="space-y-8 md:space-y-16 lg:space-y-24">
+            {children}
+          </main>
+          <footer className="p-6 text-center font-serif text-xl">
+            <p>© 2023 Pin-Chien Ho</p>
+          </footer>
+        </div>
+      </body>
     </html>
   );
+}
+
+function Header() {
+  return (
+    <header className="sticky top-0 z-50 w-full bg-[#f0f0f0] leading-none opacity-90">
+      <div className="relative mx-auto flex w-5/6 items-center justify-between gap-x-9">
+        <Link
+          href="/"
+          className="flex items-center space-x-4 py-5 font-medium text-black"
+        >
+          <span className="material-symbols-outlined !text-4xl [font-variation-settings:'wght'_300] lg:!text-8xl">
+            image
+          </span>
+          <span className="font-serif text-3xl lg:text-6xl">GALLERY</span>
+        </Link>
+        <nav>
+          <ul className="flex items-center gap-x-6 font-serif text-xl font-normal md:text-2xl">
+            <NavLi name={"Explore"} />
+            <NavLi name={"Meet Artists"} />
+            <li className="absolute right-0 flex px-2 text-base text-zinc-500 focus-within:w-full focus-within:bg-white md:static md:max-w-none md:bg-white md:text-xl md:focus-within:w-auto">
+              <button className="peer">
+                <span className="material-symbols-outlined block">search</span>
+              </button>
+              <input
+                type="text"
+                placeholder="search"
+                className="hidden w-full max-w-xs px-3 py-1 focus:inline focus-visible:outline-none active:inline peer-focus:inline md:inline lg:py-2"
+              />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+
+  function NavLi({ name }: { name: string }) {
+    return (
+      <li className="hidden md:block">
+        <a className="whitespace-nowrap" href={"#" + name.replaceAll(" ", "-")}>
+          {name}
+        </a>
+      </li>
+    );
+  }
 }

@@ -18,7 +18,7 @@ export default function Figcaption({
       <h3 className="mb-2 text-4xl font-medium whitespace-nowrap overflow-hidden text-ellipsis">
         {caption}
       </h3>
-      <Author {...{ url, author }} />
+      <Author {...{ url, name: author }} />
     </figcaption>
   );
 }
