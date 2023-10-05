@@ -6,12 +6,17 @@ import Figcaption from "./Figcaption";
 
 export default async function ExploreList() {
   const photos = await getCollection();
-  const liSpans = [4, 5, 3, 3];
+  const liClasses = [
+    "row-span-4",
+    "row-span-5",
+    "row-span-3",
+    "row-span-3",
+  ].map((span) => `mb-8 ${span}`);
 
   return (
     <ul className="grid md:grid-cols-2 md:gap-x-4 md:auto-rows-[6.25rem] lg:grid-cols-3">
       {photos.map((photo, i) => (
-        <li key={photo.id} className={`mb-8 row-span-${liSpans[i]}`}>
+        <li key={photo.id} className={liClasses[i]}>
           <ExploreFigure photo={photo} />
         </li>
       ))}
