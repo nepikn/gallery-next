@@ -16,7 +16,7 @@ function Selection() {
         </h1>
         <figure className="h-full lg:flex">
           <Image
-            className="h-[calc(100vh-80px)] w-full object-cover lg:h-[calc(100vh-136px)] lg:w-2/3"
+            className="h-[calc(100vh-72px)] w-full object-cover lg:h-[calc(100vh-112px)] lg:w-2/3"
             src={selection}
             alt="mountain"
             priority

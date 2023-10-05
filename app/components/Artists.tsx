@@ -68,7 +68,12 @@ function SwiperSlideArtist({
   return (
     <li className="shrink-0 basis-full md:basis-1/2">
       <figure className="relative">
-        <Image src={src} alt={alt} className="h-96 w-full object-cover" />
+        <Image
+          src={src}
+          alt={alt}
+          placeholder="blur"
+          className="h-96 w-full object-cover"
+        />
         <figcaption className={"absolute bottom-0 m-4 bg-white p-2"}>
           <q className="mb-2 block text-4xl font-medium italic">{caption}</q>
           <Author {...{ url, name }} />
