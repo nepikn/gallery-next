@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <ExploreImg photo={photo} quality="full" className="w-screen h-screen" />
       <figcaption className="mx-auto w-5/6">
         <h1 className="text-4xl font-medium inline mr-6">
-          {photo.description}
+          {photo.caption}
         </h1>
         <Author url={photo.user.links.html} name={photo.user.name} />
       </figcaption>
