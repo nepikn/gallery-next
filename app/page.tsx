@@ -1,9 +1,8 @@
 import Image from "next/image";
 import selection from "./assets/images/mountain.jpg";
-import Artists from "./components/Artists";
-import ExploreList from "./components/ExploreList";
+import Artists from "./meet-artists/page";
+import Explore from "./explore/page";
 import Figcaption from "./components/Figcaption";
-import H2 from "./components/H2";
 
 function Selection() {
   return (
@@ -30,15 +29,6 @@ function Selection() {
           />
         </figure>
       </article>
-    </section>
-  );
-}
-
-function Explore() {
-  return (
-    <section id="explore" className="mx-auto w-5/6 space-y-8">
-      <H2 name={"Explore"} />
-      <ExploreList />
     </section>
   );
 }

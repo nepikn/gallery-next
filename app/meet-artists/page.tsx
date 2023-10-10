@@ -1,23 +1,20 @@
 "use client";
 
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 // import { register } from "swiper/element/bundle";
 import artist2 from "app/assets/images/Alexandr-Ivanov.jpg";
 import artist3 from "app/assets/images/Hiep-hong.jpg";
 import artist1 from "app/assets/images/Toản-Dương.jpg";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import Author from "./Author";
-import H2 from "./H2";
+import Author from "../components/Author";
+import Section from "../components/Section";
 
 export default function Artists() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" });
 
   return (
-    <section id="meet-artists" className="space-y-8">
-      <div className="mx-auto w-5/6">
-        <H2 name={"Meet Artists"} />
-      </div>
+    <Section name="Meet Artists">
       <div className="relative">
         <div ref={emblaRef} className="overflow-hidden">
           <ul className="flex">
@@ -47,7 +44,7 @@ export default function Artists() {
         <NavButton isPrev={true} emblaApi={emblaApi} />
         <NavButton isPrev={false} emblaApi={emblaApi} />
       </div>
-    </section>
+    </Section>
   );
 }
 

@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Buffer } from "node:buffer";
 import { getPlaiceholder } from "plaiceholder";
-import Figcaption from "./Figcaption";
+import Figcaption from "../components/Figcaption";
+import Section from "../components/Section";
 
-export default async function ExploreList() {
+export default async function Explore() {
   const photos = await getCollection();
   const liClasses = [
     "row-span-4",
@@ -14,13 +15,15 @@ export default async function ExploreList() {
   ].map((span) => `mb-8 ${span}`);
 
   return (
-    <ul className="grid md:grid-cols-2 md:gap-x-4 md:auto-rows-[6.25rem] lg:grid-cols-3">
-      {photos.map((photo, i) => (
-        <li key={photo.id} className={liClasses[i]}>
-          <ExploreFigure photo={photo} />
-        </li>
-      ))}
-    </ul>
+    <Section name="Explore">
+      <ul className="mx-auto w-5/6 grid md:grid-cols-2 md:gap-x-4 md:auto-rows-[6.25rem] lg:grid-cols-3">
+        {photos.map((photo, i) => (
+          <li key={photo.id} className={liClasses[i]}>
+            <ExploreFigure photo={photo} />
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }
 
@@ -35,14 +38,14 @@ export async function getCollection(): Promise<Photo[]> {
     }
   );
 
-  return (await res.json()).map((p: any) =>
+  return (await res.json()).map((p: Photo) =>
     Object.assign(p, {
       caption: (p.description || p.alt_description).replace(/\s*-.*/, ""),
     })
   );
 }
 
-export function ExploreFigure({ photo }: { photo: Photo }) {
+function ExploreFigure({ photo }: { photo: Photo }) {
   return (
     <figure className="relative h-full w-full group">
       <Figcaption
