@@ -24,8 +24,8 @@ function Selection() {
           <Figcaption
             className="p-10 lg:flex lg:flex-grow lg:flex-col lg:justify-end"
             caption="Mountain"
-            author="Yakup Ipek"
-            url="https://pixabay.com/users/yakupipek-13990135/"
+            authorName="Yakup Ipek"
+            authorLink="https://pixabay.com/users/yakupipek-13990135/"
           />
         </figure>
       </article>

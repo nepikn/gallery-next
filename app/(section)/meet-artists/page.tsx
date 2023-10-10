@@ -21,23 +21,23 @@ export default function Artists() {
             <SwiperSlideArtist
               src={artist1}
               caption={"Hard work pays off"}
-              name={"Toản Dương"}
+              authorName={"Toản Dương"}
               alt="painting"
-              url={"https://pixabay.com/users/duongtoan-4117230/"}
+              authorLink={"https://pixabay.com/users/duongtoan-4117230/"}
             />
             <SwiperSlideArtist
               src={artist2}
               caption={"Beauty comes from within"}
-              name={"Alexandr Ivanov"}
+              authorName={"Alexandr Ivanov"}
               alt="colorful face"
-              url={"https://pixabay.com/users/whitedaemon-1982503/"}
+              authorLink={"https://pixabay.com/users/whitedaemon-1982503/"}
             />
             <SwiperSlideArtist
               src={artist3}
               caption={"Be passionate"}
-              name={"Hiep hong"}
+              authorName={"Hiep hong"}
               alt="painting"
-              url={"https://pixabay.com/users/tiemaoanh-21529431/"}
+              authorLink={"https://pixabay.com/users/tiemaoanh-21529431/"}
             />
           </ul>
         </div>
@@ -52,15 +52,15 @@ type SwiperSlideArtistProp = {
   src: typeof artist1;
   alt: string;
   caption: string;
-  url: string;
-  name: string;
+  authorLink: string;
+  authorName: string;
 };
 function SwiperSlideArtist({
   src,
   alt,
   caption,
-  url,
-  name,
+  authorLink,
+  authorName,
 }: SwiperSlideArtistProp) {
   return (
     <li className="shrink-0 basis-full md:basis-1/2">
@@ -73,7 +73,7 @@ function SwiperSlideArtist({
         />
         <figcaption className={"absolute bottom-0 m-4 bg-white p-2"}>
           <q className="mb-2 block text-4xl font-medium italic">{caption}</q>
-          <Author {...{ url, name }} />
+          <Author {...{ link: authorLink, name: authorName }} />
         </figcaption>
       </figure>
     </li>

@@ -52,8 +52,8 @@ function ExploreFigure({ photo }: { photo: Photo }) {
         className="[&_h3]:text-3xl w-full absolute bottom-0 right-0 z-10 hidden p-6 text-right group-hover:block"
         {...{
           caption: photo.caption,
-          author: photo.user.name,
-          url: photo.user.links.html,
+          authorName: photo.user.name,
+          authorLink: photo.user.links.html,
         }}
       />
       <Link href={"photos/" + photo.id}>
