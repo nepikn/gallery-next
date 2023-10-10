@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import {
-  ExploreFigure,
   ExploreImg,
   getCollection,
 } from "../../components/ExploreList";

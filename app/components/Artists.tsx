@@ -14,7 +14,7 @@ export default function Artists() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" });
 
   return (
-    <section id="Meet-Artists" className="space-y-8">
+    <section id="meet-artists" className="space-y-8">
       <div className="mx-auto w-5/6">
         <H2 name={"Meet Artists"} />
       </div>

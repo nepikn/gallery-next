@@ -19,6 +19,7 @@ function Selection() {
             className="h-[calc(100vh-80px)] w-full object-cover lg:h-[calc(100vh-112px)] lg:w-2/3"
             src={selection}
             alt="mountain"
+            placeholder="blur"
             priority
           />
           <Figcaption
@@ -35,7 +36,7 @@ function Selection() {
 
 function Explore() {
   return (
-    <section id="Explore" className="mx-auto w-5/6 space-y-8">
+    <section id="explore" className="mx-auto w-5/6 space-y-8">
       <H2 name={"Explore"} />
       <ExploreList />
     </section>

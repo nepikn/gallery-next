@@ -60,40 +60,55 @@ function Header() {
           <span className="font-serif text-4xl lg:text-5xl">GALLERY</span>
         </Link>
         <nav>
-          <ul className="flex items-center gap-x-6 font-serif text-xl font-normal md:text-2xl">
-            <NavLi name={"Explore"} />
-            <NavLi name={"Meet Artists"} />
-            <li className="absolute right-0 flex gap-x-3 px-3 py-2 text-base text-zinc-500 focus-within:w-full focus-within:bg-white md:static md:max-w-none md:bg-white md:text-xl md:focus-within:w-auto">
-              <button className="peer w-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="100%"
-                  height="100%"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-              </button>
-              <input
-                type="text"
-                placeholder="search"
-                className="hidden w-full max-w-xs focus:inline focus-visible:outline-none active:inline peer-focus:inline md:inline"
-              />
-            </li>
-          </ul>
+          <NavList />
         </nav>
       </div>
     </header>
   );
+}
 
-  function NavLi({ name }: { name: string }) {
-    return (
-      <li className="hidden md:block">
-        <a className="whitespace-nowrap" href={"#" + name.replaceAll(" ", "-")}>
-          {name}
-        </a>
+function NavList() {
+  return (
+    <ul className="flex items-center gap-x-6 font-serif text-xl font-normal md:text-2xl">
+      <NavItem name={"Explore"} />
+      <NavItem name={"Meet Artists"} />
+      <li className="absolute right-0 flex gap-x-3 px-3 py-2 text-base text-zinc-500 focus-within:w-full focus-within:bg-white md:static md:max-w-none md:bg-white md:text-xl md:focus-within:w-auto">
+        <button className="peer w-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            height="100%"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
+        <input
+          type="text"
+          placeholder="search"
+          className="hidden w-full max-w-xs focus:inline focus-visible:outline-none active:inline peer-focus:inline md:inline"
+        />
       </li>
-    );
-  }
+    </ul>
+  );
+}
+
+function NavItem({ name }: { name: string }) {
+  return (
+    <li className="hidden md:block">
+      <a
+        className="whitespace-nowrap"
+        href={
+          "#" +
+          name
+            .split(" ")
+            .map((str) => str.toLowerCase())
+            .join("-")
+        }
+      >
+        {name}
+      </a>
+    </li>
+  );
 }
