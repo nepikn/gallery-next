@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ExploreImg, getCollection } from "../../explore/page";
+import { ExploreImg, getCollection } from "../../(section)/explore/page";
 import Author from "@/app/components/Author";
 
 export default async function Page({ params }: { params: { id: string } }) {

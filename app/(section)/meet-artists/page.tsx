@@ -7,8 +7,8 @@ import artist3 from "app/assets/images/Hiep-hong.jpg";
 import artist1 from "app/assets/images/Toản-Dương.jpg";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import Author from "../components/Author";
-import Section from "../components/Section";
+import Author from "../../components/Author";
+import Section from "../../components/Section";
 
 export default function Artists() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" });

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import selection from "./assets/images/mountain.jpg";
-import Artists from "./meet-artists/page";
-import Explore from "./explore/page";
+import Artists from "./(section)/meet-artists/page";
+import Explore from "./(section)/explore/page";
 import Figcaption from "./components/Figcaption";
 
 function Selection() {

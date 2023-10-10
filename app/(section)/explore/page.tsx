@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Buffer } from "node:buffer";
 import { getPlaiceholder } from "plaiceholder";
-import Figcaption from "../components/Figcaption";
-import Section from "../components/Section";
+import Figcaption from "../../components/Figcaption";
+import Section from "../../components/Section";
 
 export default async function Explore() {
   const photos = await getCollection();
