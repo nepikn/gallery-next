@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function template({ children }: { children: React.ReactNode }) {
+export default function Template({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.querySelectorAll<HTMLAnchorElement>("header li a").forEach((a) => {
       const id = a.getAttribute("href")!.slice(1);
