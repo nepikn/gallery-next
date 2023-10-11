@@ -16,10 +16,10 @@ export default async function Explore() {
 
   return (
     <Section name="Explore">
-      <ul className="mx-auto w-5/6 grid md:grid-cols-2 md:gap-x-4 md:auto-rows-[6.25rem] lg:grid-cols-3">
+      <ul className="mx-auto grid w-5/6 md:auto-rows-[6.25rem] md:grid-cols-2 md:gap-x-4 lg:grid-cols-3">
         {photos.map((photo, i) => (
           <li key={photo.id} className={liClasses[i]}>
-            <ExploreFigure photo={photo} />
+            <ExploreFigure {...photo} />
           </li>
         ))}
       </ul>
@@ -27,7 +27,7 @@ export default async function Explore() {
   );
 }
 
-export async function getCollection(): Promise<Photo[]> {
+export async function getCollection() {
   const res = await fetch(
     "https://api.unsplash.com/collections/b5_z5iwSu5E/photos?per_page=4",
     {
@@ -35,21 +35,23 @@ export async function getCollection(): Promise<Photo[]> {
         "Accept-Version": "v1",
         Authorization: "Client-ID " + process.env.UNSPLASH_ACCESS_KEY,
       },
-    }
+    },
   );
 
-  return (await res.json()).map((p: Photo) =>
+  return (await res.json() as UnsplashPhoto[]).map((p) =>
     Object.assign(p, {
-      caption: (p.description || p.alt_description).replace(/\s*-.*/, ""),
-    })
+      caption: (p.description ?? p.alt_description).replace(/\s*-.*/, ""),
+    }),
   );
 }
 
-function ExploreFigure({ photo }: { photo: Photo }) {
+type Photo = Awaited<ReturnType<typeof getCollection>>[number]
+
+function ExploreFigure(photo: Photo) {
   return (
-    <figure className="relative h-full w-full group">
+    <figure className="group relative h-full w-full">
       <Figcaption
-        className="[&_h3]:text-3xl w-full absolute bottom-0 right-0 z-10 hidden p-6 text-right group-hover:block"
+        className="absolute bottom-0 right-0 z-10 hidden w-full p-6 text-right group-hover:block [&_h3]:text-3xl"
         {...{
           caption: photo.caption,
           authorName: photo.user.name,
@@ -63,15 +65,17 @@ function ExploreFigure({ photo }: { photo: Photo }) {
   );
 }
 
+interface ExploreImgProp {
+  photo: Photo;
+  className?: string;
+  quality?: keyof Photo["urls"];
+}
+
 export async function ExploreImg({
   photo,
   className,
   quality = "regular",
-}: {
-  photo: Photo;
-  className?: string;
-  quality?: keyof Photo["urls"];
-}) {
+}: ExploreImgProp) {
   return (
     <Image
       src={photo.urls[quality]}
@@ -93,8 +97,7 @@ async function blurDataURL(photo: Photo) {
   return base64;
 }
 
-interface Photo {
-  caption: string;
+interface UnsplashPhoto {
   id: string;
   slug: string;
   created_at: string;

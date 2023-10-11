@@ -44,7 +44,7 @@ function Header() {
       <div className="relative mx-auto flex w-5/6 items-center justify-between gap-x-9">
         <Link
           href="/"
-          className="flex items-center gap-x-4 py-5 lg:gap-x-6 lg:py-7 font-medium text-black"
+          className="flex items-center gap-x-4 py-5 font-medium text-black lg:gap-x-6 lg:py-7"
         >
           <span className="w-9 lg:w-14">
             <svg
@@ -87,7 +87,7 @@ function NavList() {
         <input
           type="text"
           placeholder="search"
-          className="hidden w-full max-w-xs focus:inline focus-visible:outline-none active:inline peer-focus:inline md:inline"
+          className="hidden w-full focus:inline focus-visible:outline-none active:inline peer-focus:inline md:inline md:max-w-xs"
         />
       </li>
     </ul>

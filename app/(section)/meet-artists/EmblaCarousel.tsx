@@ -1,22 +1,21 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback } from "react";
 // import { register } from "swiper/element/bundle";
 import Image from "next/image";
 import Author from "../../components/Author";
-import { Photo } from "./photos";
+import photos, { Photo } from "./photos";
 
-export function EmblaCarousel({ photos }: { photos: Photo[] }) {
+export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" });
-  const scrollMethods = [
-    useCallback(() => {
-      if (emblaApi) emblaApi.scrollPrev();
-    }, [emblaApi]),
-    useCallback(() => {
-      if (emblaApi) emblaApi.scrollNext();
-    }, [emblaApi]),
-  ];
+  // const [scrollPrev, scrollNext] = [
+  //   useCallback(() => {
+  //     if (emblaApi) emblaApi.scrollPrev();
+  //   }, [emblaApi]),
+  //   useCallback(() => {
+  //     if (emblaApi) emblaApi.scrollNext();
+  //   }, [emblaApi]),
+  // ];
   // console.log(photos);
 
   return (
@@ -24,17 +23,17 @@ export function EmblaCarousel({ photos }: { photos: Photo[] }) {
       <div ref={emblaRef} className="overflow-hidden">
         <ul className="flex">
           {photos.map((p) => (
-            <ArtistSlide photo={p} key={p.id} />
+            <ArtistSlide {...p} key={p.id} />
           ))}
         </ul>
       </div>
-      <NavButton isPrev={true} scrollMethods={scrollMethods} />
-      <NavButton isPrev={false} scrollMethods={scrollMethods} />
+      <NavButton scrollPrev={emblaApi?.scrollPrev} />
+      <NavButton scrollNext={emblaApi?.scrollNext} />
     </div>
   );
 }
 
-export function ArtistSlide({ photo }: { photo: Photo }) {
+export function ArtistSlide(photo: Photo) {
   const { src, alt, caption, authorLink, authorName } = photo;
 
   return (
@@ -56,23 +55,27 @@ export function ArtistSlide({ photo }: { photo: Photo }) {
 }
 
 type NavButtonProp = {
-  isPrev: boolean;
-  scrollMethods: (() => void)[];
+  scrollPrev?: () => void;
+  scrollNext?: () => void;
+  // isPrev: boolean;
+  // scrollMethods: (() => void)[];
 };
 
 export function NavButton({
-  isPrev,
-  scrollMethods: [scrollPrev, scrollNext],
+  scrollPrev,
+  scrollNext,
+  // isPrev,
+  // scrollMethods: [scrollPrev, scrollNext],
 }: NavButtonProp) {
   return (
     <button
-      onClick={isPrev ? scrollPrev : scrollNext}
-      className={`absolute top-1/2 -translate-y-1/2 h-12 ${
-        isPrev ? "ml-4" : "mr-4 right-0"
+      onClick={scrollPrev ?? scrollNext}
+      className={`absolute top-1/2 h-12 -translate-y-1/2 ${
+        scrollPrev ? "ml-4" : "right-0 mr-4"
       }`}
     >
-      <span className="material-symbols-outlined text-white !text-5xl">
-        {`arrow_${isPrev ? "back" : "forward"}_ios`}
+      <span className="material-symbols-outlined !text-5xl text-white">
+        {`arrow_${scrollPrev ? "back" : "forward"}_ios`}
       </span>
     </button>
   );
