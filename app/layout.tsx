@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { mainIcon } from "./icon";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gallery",
-  description: "Ark work demonstration",
+  title: {
+    template: "Nature - %s",
+    default: "Nature",
+  },
 };
 
 export default function RootLayout({
@@ -46,18 +49,8 @@ function Header() {
           href="/"
           className="flex items-center gap-x-4 py-5 font-medium text-black lg:gap-x-6 lg:py-7"
         >
-          <span className="w-9 lg:w-14">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-            </svg>
-          </span>
-          <span className="font-serif text-4xl lg:text-5xl">GALLERY</span>
+          <span className="w-9 lg:w-14">{mainIcon}</span>
+          <span className="font-serif text-4xl lg:text-5xl">NATURE</span>
         </Link>
         <nav>
           <NavList />

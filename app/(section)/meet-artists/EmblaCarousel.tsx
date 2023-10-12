@@ -47,7 +47,7 @@ export function ArtistSlide(photo: Photo) {
         />
         <figcaption className={"absolute bottom-0 m-4 bg-white p-2"}>
           <q className="mb-2 block text-4xl font-medium italic">{caption}</q>
-          <Author {...{ link: authorLink, name: authorName }} />
+          <Author link={authorLink} name={authorName} />
         </figcaption>
       </figure>
     </li>
@@ -57,25 +57,18 @@ export function ArtistSlide(photo: Photo) {
 type NavButtonProp = {
   scrollPrev?: () => void;
   scrollNext?: () => void;
-  // isPrev: boolean;
-  // scrollMethods: (() => void)[];
 };
 
-export function NavButton({
-  scrollPrev,
-  scrollNext,
-  // isPrev,
-  // scrollMethods: [scrollPrev, scrollNext],
-}: NavButtonProp) {
+export function NavButton({ scrollPrev, scrollNext }: NavButtonProp) {
   return (
     <button
       onClick={scrollPrev ?? scrollNext}
       className={`absolute top-1/2 h-12 -translate-y-1/2 ${
-        scrollPrev ? "ml-4" : "right-0 mr-4"
+        scrollPrev ? "ml-2" : "right-0 mr-2"
       }`}
     >
       <span className="material-symbols-outlined !text-5xl text-white">
-        {`arrow_${scrollPrev ? "back" : "forward"}_ios`}
+        {scrollPrev ? `arrow_back_ios_new` : `arrow_forward_ios`}
       </span>
     </button>
   );
