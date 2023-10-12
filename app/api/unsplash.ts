@@ -2,7 +2,7 @@ export type Photo = Awaited<ReturnType<typeof getCollection>>[number];
 
 export async function getCollection() {
   const res = await fetch(
-    "https://api.unsplash.com/collections/b5_z5iwSu5E/photos?per_page=4",
+    "https://api.unsplash.com/collections/b5_z5iwSu5E/photos",
     {
       headers: {
         "Accept-Version": "v1",
@@ -13,14 +13,14 @@ export async function getCollection() {
 
   return ((await res.json()) as UnsplashPhoto[]).map((p) =>
     Object.assign(p, {
-      caption: (p.description ?? p.alt_description).replace(/\s*-.*/, ""),
+      caption: (p.description ?? p.alt_description).replace(/(\s*-|\.).*/, ""),
     }),
   );
 }
 
 export async function getPhoto(id: string) {
   const photos = await getCollection();
-  
+
   return photos.find((p) => p.id == id);
 }
 

@@ -14,16 +14,19 @@ export const metadata: Metadata = {
 export default async function Explore() {
   const photos = await getCollection();
   const liClasses = [
+    "row-span-3",
+    "row-span-5",
+    "row-span-4",
+    "row-span-3",
     "row-span-4",
     "row-span-5",
-    "row-span-3",
     "row-span-3",
   ].map((span) => `mb-8 ${span}`);
 
   return (
     <Section name={title}>
       <ul className="mx-auto grid w-5/6 md:auto-rows-[6.25rem] md:grid-cols-2 md:gap-x-4 lg:grid-cols-3">
-        {photos.map((photo, i) => (
+        {photos.reverse().map((photo, i) => (
           <li key={photo.id} className={liClasses[i]}>
             <ExploreFigure {...photo} />
           </li>
