@@ -1,22 +1,12 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-// import { register } from "swiper/element/bundle";
 import Image from "next/image";
 import Author from "../../components/Author";
 import photos, { Photo } from "./photos";
 
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: "auto" });
-  // const [scrollPrev, scrollNext] = [
-  //   useCallback(() => {
-  //     if (emblaApi) emblaApi.scrollPrev();
-  //   }, [emblaApi]),
-  //   useCallback(() => {
-  //     if (emblaApi) emblaApi.scrollNext();
-  //   }, [emblaApi]),
-  // ];
-  // console.log(photos);
 
   return (
     <div className="relative">
