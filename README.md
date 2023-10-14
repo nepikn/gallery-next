@@ -12,7 +12,7 @@
   - JSX
   - Component
 - TypeScript v5
-  - Utility Type (Awaited, ReturnType, Parameters)
+  - Utility Type (Awaited, ReturnType)
 - Tailwind CSS v3
   - Responsive Web Design
   - Flexbox
@@ -27,10 +27,10 @@
 
 ### 1024px
 
-| /                           | /explore                                      | /meet-artists                      | /photos/6ArTTluciuA          |
-| --------------------------- | --------------------------------------------- | ---------------------------------- | ---------------------------- |
-| Natrue                      | Natrue - Explore                              | Natrue - Meet Artists              | Natrue - Ocean Ripple        |
-| ![1024px](./snaps/1024.jpg) | ![](./snaps/1024-explore.jpg)（鼠標懸停首圖） | ![](./snaps/1024-meet-artists.jpg) | ![](./snaps/1024-photos.jpg) |
+| /                           | /explore                                               | /meet-artists                      | /photos/6ArTTluciuA          |
+| --------------------------- | ------------------------------------------------------ | ---------------------------------- | ---------------------------- |
+| Natrue                      | Natrue - Explore                                       | Natrue - Meet Artists              | Natrue - Ocean Ripple        |
+| ![1024px](./snaps/1024.jpg) | ![](./snaps/1024-explore.jpg)（鼠標懸停 Ocean Ripple） | ![](./snaps/1024-meet-artists.jpg) | ![](./snaps/1024-photos.jpg) |
 
 ### 768px
 
