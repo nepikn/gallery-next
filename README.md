@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gallery Next
 
-## Getting Started
+[Live Demo](https://nepikn-gallery-next.vercel.app)
 
-First, run the development server:
+## 主要技術
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next v13
+  - App Router (Layout, Page, Dynamic Route)
+  - Metadata (Dynamic Metadata, Template Title)
+  - Environment Variable
+- React v18
+  - JSX
+  - Component
+- TypeScript v5
+  - Utility Type (Awaited, ReturnType, Parameters)
+- Tailwind CSS v3
+  - Responsive Web Design
+  - Flexbox
+  - Grid
+- RESTful API
+  - [Unsplash API](https://unsplash.com/developers)
+- Library
+  - [Embla Carousel](https://www.embla-carousel.com)
+  - [Plaiceholder](https://plaiceholder.co/docs)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 展示
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1024px
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| /                           | /explore                                      | /meet-artists                      | /photos/6ArTTluciuA          |
+| --------------------------- | --------------------------------------------- | ---------------------------------- | ---------------------------- |
+| Natrue                      | Natrue - Explore                              | Natrue - Meet Artists              | Natrue - Ocean Ripple        |
+| ![1024px](./snaps/1024.jpg) | ![](./snaps/1024-explore.jpg)（鼠標懸停首圖） | ![](./snaps/1024-meet-artists.jpg) | ![](./snaps/1024-photos.jpg) |
 
-## Learn More
+### 768px
 
-To learn more about Next.js, take a look at the following resources:
+|                           |                              |                                   |                             |
+| ------------------------- | ---------------------------- | --------------------------------- | --------------------------- |
+| ![768px](./snaps/768.jpg) | ![](./snaps/768-explore.jpg) | ![](./snaps/768-meet-artists.jpg) | ![](./snaps/768-photos.jpg) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 425px
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+|                           |                              |                                   |                             |
+| ------------------------- | ---------------------------- | --------------------------------- | --------------------------- |
+| ![425px](./snaps/425.jpg) | ![](./snaps/425-explore.jpg) | ![](./snaps/425-meet-artists.jpg) | ![](./snaps/425-photos.jpg) |
