@@ -30,7 +30,7 @@ export default async function Page({ params }: PageProp) {
 
   return (
     <figure className="space-y-8 md:space-y-16">
-      <UnsplashImg photo={photo} quality="full" className="h-screen w-screen" />
+      <UnsplashImg photo={photo} quality="full" className="h-screen" />
       <figcaption className="mx-auto w-5/6">
         <h1 className="mr-6 inline text-4xl font-medium">{photo.caption}</h1>
         <Author link={photo.user.links.html} name={photo.user.name} />
