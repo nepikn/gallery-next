@@ -27,19 +27,42 @@
 
 ### 1024px
 
-| /                           | /explore                                      | /meet-artists                      | /photos/6ArTTluciuA          |
-| --------------------------- | --------------------------------------------- | ---------------------------------- | ---------------------------- |
-| Natrue                      | Natrue - Explore                              | Natrue - Meet Artists              | Natrue - Ocean Ripple        |
-| ![1024px](./snaps/1024.jpg) | ![](./snaps/1024-explore.jpg)（鼠標懸停首圖） | ![](./snaps/1024-meet-artists.jpg) | ![](./snaps/1024-photos.jpg) |
+| /      | /explore         | /meet-artists         | /photos/6ArTTluciuA   |
+| ------ | ---------------- | --------------------- | --------------------- |
+| Natrue | Natrue - Explore | Natrue - Meet Artists | Natrue - Ocean Ripple |
 
 ### 768px
 
-|                           |                              |                                   |                             |
-| ------------------------- | ---------------------------- | --------------------------------- | --------------------------- |
-| ![768px](./snaps/768.jpg) | ![](./snaps/768-explore.jpg) | ![](./snaps/768-meet-artists.jpg) | ![](./snaps/768-photos.jpg) |
-
 ### 425px
 
-|                           |                              |                                   |                             |
-| ------------------------- | ---------------------------- | --------------------------------- | --------------------------- |
-| ![425px](./snaps/425.jpg) | ![](./snaps/425-explore.jpg) | ![](./snaps/425-meet-artists.jpg) | ![](./snaps/425-photos.jpg) |
+<script>
+  document.querySelectorAll("h3").forEach((h3, i) => {
+    const width = h3.textContent?.match(/\d+/);
+
+    if (i > 0) {
+      h3.insertAdjacentHTML(
+        "afterend",
+        `<table>
+        <tbody>
+        </tbody>
+      </table>`,
+      );
+    }
+
+    h3.nextElementSibling?.querySelector("tbody")?.insertAdjacentHTML(
+      "beforeend",
+      `<tr>
+      <td><img src="./snaps/${width}.jpg"></td>
+      <td><img src="./snaps/${width}-explore.jpg"></td>
+      <td><img src="./snaps/${width}-meet-artists.jpg"></td>
+      <td><img src="./snaps/${width}-photos.jpg"></td>
+    </tr>`,
+    );
+  });
+</script>
+
+<style>
+  th, td {
+    vertical-align: top;
+  }
+</style>
