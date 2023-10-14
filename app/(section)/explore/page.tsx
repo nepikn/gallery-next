@@ -1,6 +1,6 @@
 import { Photo, getCollection } from "@/app/api/unsplash";
 import { Metadata } from "next";
-import Link from "next/link";
+import Link from "../../components/Link";
 import Figcaption from "../../components/Figcaption";
 import Section from "../../components/Section";
 import { UnsplashImg } from "../../components/UnsplashImg";
@@ -47,8 +47,8 @@ function ExploreFigure(photo: Photo) {
           authorLink: photo.user.links.html,
         }}
       />
-      <Link href={"photos/" + photo.id}>
-        <UnsplashImg photo={photo} className="group-hover:opacity-50" />
+      <Link href={"photos/" + photo.id} opacity={50}>
+        <UnsplashImg photo={photo} />
       </Link>
     </figure>
   );

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
+import Link from "./components/Link";
 import "./globals.css";
 import { mainIcon } from "./icon";
 
@@ -90,10 +90,10 @@ function NavList() {
 function NavItem({ name }: { name: string }) {
   return (
     <li className="hidden md:block">
-      <a
+      <Link
         className="whitespace-nowrap"
         href={
-          "#" +
+          "/" +
           name
             .split(" ")
             .map((str) => str.toLowerCase())
@@ -101,7 +101,7 @@ function NavItem({ name }: { name: string }) {
         }
       >
         {name}
-      </a>
+      </Link>
     </li>
   );
 }

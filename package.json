@@ -14,9 +14,7 @@
     "next": "latest",
     "plaiceholder": "^3.0.0",
     "react": "latest",
-    "react-dom": "latest",
-    "swiper": "^10.3.0",
-    "unsplash-js": "^7.0.18"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
